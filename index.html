@@ -29,7 +29,7 @@
         <li><a href="#pricing">Csomagok</a></li>
         <li><a href="#faq">GYIK</a></li>
       </ul>
-      <a href="#download" class="btn btn-primary btn-sm btn-mobile">Letöltés</a>
+      <button class="btn btn-primary btn-sm btn-mobile js-download-open" type="button">Letöltés</button>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Menü" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -47,10 +47,10 @@
       <h1><span class="hero-title-line">Dokumentumelemző&nbsp;és</span><span class="hero-title-line">szövegminőség-javító</span><span class="hero-title-line">szoftver.</span></h1>
       <p class="hero-lead">Offline dokumentumelemzés és szövegminőség-javítás opcionális, kontrollált AI-támogatással.</p>
       <div class="hero-actions">
-        <a href="#download" class="btn btn-primary">
+        <button class="btn btn-primary js-download-open" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
           Letöltés
-        </a>
+        </button>
         <a href="#workflow" class="btn btn-ghost">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
           Hogyan működik?
@@ -432,21 +432,13 @@
       <p>Internet nélkül működő, asztali program Windowsra. A dokumentumaid a gépeden maradnak, az elemzés helyben fut.</p>
       <div class="download-consent" aria-labelledby="download-consent-title">
         <h3 id="download-consent-title">Letöltés előtt</h3>
-        <p>A Baker Lektor trial verziója 14 napig vagy 10 dokumentumig használható. A letöltéshez kérjük, erősítsd meg a két alapfeltétel elfogadását.</p>
-        <label class="download-consent-row">
-          <input type="checkbox" id="acceptTerms">
-          <span>Elfogadom a <a href="felhasznalasi-feltetelek.html" target="_blank" rel="noopener">Felhasználási feltételeket</a>.</span>
-        </label>
-        <label class="download-consent-row">
-          <input type="checkbox" id="acceptPrivacy">
-          <span>Megismertem az <a href="adatvedelem.html" target="_blank" rel="noopener">Adatvédelmi tájékoztatót</a>.</span>
-        </label>
+        <p>A Baker Lektor trial verziója 14 napig vagy 10 dokumentumig használható. A letöltés indításához a feltételeket a megjelenő ablakban kell elfogadni.</p>
       </div>
       <div class="hero-actions" style="justify-content:center;position:relative;">
-        <a href="BAKER_INSTALLER_DOWNLOAD_URL" class="btn btn-primary" id="downloadButton" data-download-url="BAKER_INSTALLER_DOWNLOAD_URL" aria-disabled="false">
+        <button class="btn btn-primary js-download-open" id="downloadButton" type="button" data-download-url="BAKER_INSTALLER_DOWNLOAD_URL">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
           Baker Lektor letöltése
-        </a>
+        </button>
         <a href="#videos" class="btn btn-ghost">Videó megtekintése</a>
         <a href="assets/docs/BakerLektor_Felhasznaloi_Kezikonyv.pdf" class="btn btn-ghost" target="_blank" rel="noopener" download>
           Felhasználói kézikönyv letöltése
@@ -576,7 +568,7 @@
           <a href="#videos">Videók</a>
           <a href="#pricing">Csomagok</a>
           <a href="#faq">GYIK</a>
-          <a href="#download">Letöltés</a>
+          <button class="footer-link-button js-download-open" type="button">Letöltés</button>
         </div>
         <div class="footer-col">
           <h4>Kapcsolat</h4>
