@@ -443,8 +443,7 @@
         </label>
       </div>
       <div class="hero-actions" style="justify-content:center;position:relative;">
-        <!-- TODO: ide kerül az éles telepítő vagy portable ZIP letöltési linkje -->
-        <a href="#" class="btn btn-primary is-disabled" id="downloadButton" aria-disabled="true">
+        <a href="BAKER_INSTALLER_DOWNLOAD_URL" class="btn btn-primary" id="downloadButton" data-download-url="BAKER_INSTALLER_DOWNLOAD_URL" aria-disabled="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
           Baker Lektor letöltése
         </a>
@@ -458,6 +457,29 @@
     </div>
   </div>
 </section>
+
+<div class="download-modal" id="downloadModal" aria-hidden="true">
+  <div class="download-modal__backdrop" data-download-modal-close></div>
+  <div class="download-modal__panel" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+    <button class="download-modal__close" type="button" data-download-modal-close aria-label="Bezárás">×</button>
+    <div class="eyebrow">Letöltés előtt</div>
+    <h2 id="downloadModalTitle">Feltételek elfogadása</h2>
+    <p>A Baker Lektor trial verziója 14 napig vagy 10 dokumentumig használható. A letöltés indításához kérjük, erősítsd meg a feltételeket.</p>
+    <label class="download-consent-row">
+      <input type="checkbox" id="modalAcceptTerms">
+      <span>Elfogadom a <a href="felhasznalasi-feltetelek.html" target="_blank" rel="noopener">Felhasználási feltételeket</a>.</span>
+    </label>
+    <label class="download-consent-row">
+      <input type="checkbox" id="modalAcceptPrivacy">
+      <span>Megismertem az <a href="adatvedelem.html" target="_blank" rel="noopener">Adatvédelmi tájékoztatót</a>.</span>
+    </label>
+    <div class="download-modal__actions">
+      <button class="btn btn-primary is-disabled" type="button" id="downloadConfirmButton" aria-disabled="true">Letöltés indítása</button>
+      <button class="btn btn-ghost" type="button" data-download-modal-close>Mégsem</button>
+    </div>
+    <p class="download-modal__note" id="downloadStatus" aria-live="polite"></p>
+  </div>
+</div>
 
 <!-- ============================ FAQ ============================ -->
 <section id="faq">

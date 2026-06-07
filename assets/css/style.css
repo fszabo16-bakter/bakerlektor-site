@@ -1072,6 +1072,72 @@ section { padding: 96px 0; position: relative; z-index: 1; }
   font-size: 14px;
   position: relative;
 }
+.download-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+}
+.download-modal.is-open { display: flex; }
+.download-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 12, 22, 0.78);
+  backdrop-filter: blur(10px);
+}
+.download-modal__panel {
+  position: relative;
+  width: min(620px, 100%);
+  background: linear-gradient(135deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow), 0 0 52px rgba(255, 200, 87, 0.12);
+  padding: 34px;
+}
+.download-modal__panel h2 {
+  font-size: clamp(26px, 4vw, 36px);
+  margin: 10px 0 12px;
+}
+.download-modal__panel p {
+  color: var(--text-2);
+  line-height: 1.62;
+  margin-bottom: 22px;
+}
+.download-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(245, 236, 200, 0.04);
+  color: var(--ivory);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+.download-modal__close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.download-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.download-modal__note {
+  min-height: 20px;
+  margin: 16px 0 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+}
 .footer-legal a {
   overflow-wrap: anywhere;
 }
@@ -1091,5 +1157,12 @@ section { padding: 96px 0; position: relative; z-index: 1; }
   }
   .download-consent-row {
     font-size: 14.5px;
+  }
+  .download-modal__panel {
+    padding: 28px 22px;
+  }
+  .download-modal__actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

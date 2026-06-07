@@ -70,23 +70,175 @@
   var acceptTerms = document.getElementById('acceptTerms');
   var acceptPrivacy = document.getElementById('acceptPrivacy');
   var downloadButton = document.getElementById('downloadButton');
-  function refreshDownloadConsent() {
-    if (!acceptTerms || !acceptPrivacy || !downloadButton) {
+  var downloadModal = document.getElementById('downloadModal');
+  var modalAcceptTerms = document.getElementById('modalAcceptTerms');
+  var modalAcceptPrivacy = document.getElementById('modalAcceptPrivacy');
+  var downloadConfirmButton = document.getElementById('downloadConfirmButton');
+  var downloadStatus = document.getElementById('downloadStatus');
+  var downloadConsentKey = 'bakerlektorDownloadConsentAccepted';
+
+  function storageAvailable() {
+    try {
+      var testKey = '__baker_storage_test__';
+      window.sessionStorage.setItem(testKey, '1');
+      window.sessionStorage.removeItem(testKey);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  var canUseStorage = storageAvailable();
+
+  function hasDownloadConsent() {
+    return canUseStorage && window.sessionStorage.getItem(downloadConsentKey) === 'true';
+  }
+
+  function setDownloadConsent() {
+    if (canUseStorage) {
+      window.sessionStorage.setItem(downloadConsentKey, 'true');
+    }
+  }
+
+  function getInstallerUrl() {
+    if (!downloadButton) {
+      return '';
+    }
+    return (downloadButton.getAttribute('data-download-url') || downloadButton.getAttribute('href') || '').trim();
+  }
+
+  function isRealInstallerUrl(url) {
+    return Boolean(url && url !== '#' && url !== 'BAKER_INSTALLER_DOWNLOAD_URL');
+  }
+
+  function setDownloadStatus(message) {
+    if (downloadStatus) {
+      downloadStatus.textContent = message || '';
+    }
+  }
+
+  function syncVisibleConsent(accepted) {
+    if (acceptTerms) {
+      acceptTerms.checked = accepted;
+    }
+    if (acceptPrivacy) {
+      acceptPrivacy.checked = accepted;
+    }
+  }
+
+  function modalAccepted() {
+    return Boolean(modalAcceptTerms && modalAcceptPrivacy && modalAcceptTerms.checked && modalAcceptPrivacy.checked);
+  }
+
+  function refreshModalConsent() {
+    if (!downloadConfirmButton) {
       return;
     }
-    var accepted = acceptTerms.checked && acceptPrivacy.checked;
-    downloadButton.classList.toggle('is-disabled', !accepted);
-    downloadButton.setAttribute('aria-disabled', accepted ? 'false' : 'true');
+    var accepted = modalAccepted();
+    downloadConfirmButton.classList.toggle('is-disabled', !accepted);
+    downloadConfirmButton.setAttribute('aria-disabled', accepted ? 'false' : 'true');
   }
-  if (acceptTerms && acceptPrivacy && downloadButton) {
-    acceptTerms.addEventListener('change', refreshDownloadConsent);
-    acceptPrivacy.addEventListener('change', refreshDownloadConsent);
+
+  function openDownloadModal() {
+    if (!downloadModal) {
+      return;
+    }
+    setDownloadStatus('');
+    if (modalAcceptTerms && acceptTerms) {
+      modalAcceptTerms.checked = acceptTerms.checked;
+    }
+    if (modalAcceptPrivacy && acceptPrivacy) {
+      modalAcceptPrivacy.checked = acceptPrivacy.checked;
+    }
+    refreshModalConsent();
+    downloadModal.classList.add('is-open');
+    downloadModal.setAttribute('aria-hidden', 'false');
+    if (modalAcceptTerms && !modalAcceptTerms.checked) {
+      modalAcceptTerms.focus();
+    } else if (modalAcceptPrivacy && !modalAcceptPrivacy.checked) {
+      modalAcceptPrivacy.focus();
+    } else if (downloadConfirmButton) {
+      downloadConfirmButton.focus();
+    }
+  }
+
+  function closeDownloadModal() {
+    if (!downloadModal) {
+      return;
+    }
+    downloadModal.classList.remove('is-open');
+    downloadModal.setAttribute('aria-hidden', 'true');
+    if (downloadButton) {
+      downloadButton.focus();
+    }
+  }
+
+  function startInstallerDownload() {
+    var installerUrl = getInstallerUrl();
+    if (!isRealInstallerUrl(installerUrl)) {
+      setDownloadStatus('A telepítő linkje még nincs beállítva.');
+      return false;
+    }
+    closeDownloadModal();
+    var link = document.createElement('a');
+    link.href = installerUrl;
+    link.setAttribute('download', '');
+    link.rel = 'noopener noreferrer';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    window.setTimeout(function () {
+      link.remove();
+    }, 0);
+    return true;
+  }
+
+  if (downloadButton) {
+    if (hasDownloadConsent()) {
+      syncVisibleConsent(true);
+    }
+
     downloadButton.addEventListener('click', function (event) {
-      if (downloadButton.getAttribute('aria-disabled') === 'true') {
-        event.preventDefault();
+      event.preventDefault();
+      if (hasDownloadConsent() && isRealInstallerUrl(getInstallerUrl())) {
+        startInstallerDownload();
+        return;
+      }
+      openDownloadModal();
+    });
+  }
+
+  if (modalAcceptTerms && modalAcceptPrivacy) {
+    modalAcceptTerms.addEventListener('change', refreshModalConsent);
+    modalAcceptPrivacy.addEventListener('change', refreshModalConsent);
+    refreshModalConsent();
+  }
+
+  if (downloadConfirmButton) {
+    downloadConfirmButton.addEventListener('click', function () {
+      if (!modalAccepted()) {
+        setDownloadStatus('A letöltéshez mindkét feltételt el kell fogadni.');
+        return;
+      }
+      if (!isRealInstallerUrl(getInstallerUrl())) {
+        setDownloadStatus('A telepítő linkje még nincs beállítva.');
+        return;
+      }
+      setDownloadConsent();
+      syncVisibleConsent(true);
+      startInstallerDownload();
+    });
+  }
+
+  if (downloadModal) {
+    downloadModal.querySelectorAll('[data-download-modal-close]').forEach(function (control) {
+      control.addEventListener('click', closeDownloadModal);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && downloadModal.classList.contains('is-open')) {
+        closeDownloadModal();
       }
     });
-    refreshDownloadConsent();
   }
 
   /* ---- Hero reklámvideó újrajátszás ---- */
