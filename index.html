@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baker Lektor — Dokumentumminőség-ellenőrző és stilisztikai lektor</title>
+<meta name="description" content="Baker Lektor — offline dokumentumelemzés és szövegminőség-javítás opcionális, kontrollált AI-támogatással. A dokumentum a saját gépen marad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a class="brand" href="#hero" aria-label="Baker Lektor kezdőlap">
+      <span class="brand-mark"></span>
+      <span class="wordmark"><span class="b">Baker</span><span class="l">Lektor</span></span>
+    </a>
+    <nav class="nav" id="nav">
+      <ul class="nav-links">
+        <li><a href="#why">Miért?</a></li>
+        <li><a href="#does">Mit csinál?</a></li>
+        <li><a href="#offline">Adatvédelem</a></li>
+        <li><a href="#workflow">Hogyan működik?</a></li>
+        <li><a href="#videos">Videók</a></li>
+        <li><a href="#pricing">Csomagok</a></li>
+        <li><a href="#faq">GYIK</a></li>
+      </ul>
+      <a href="#download" class="btn btn-primary btn-sm btn-mobile">Letöltés</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="hero-badge"><span class="dot"></span>Offline asztali program · opcionális AI-támogatás</div>
+      <h1><span class="hero-title-line">Dokumentumelemző&nbsp;és</span><span class="hero-title-line">szövegminőség-javító</span><span class="hero-title-line">szoftver.</span></h1>
+      <p class="hero-lead">Offline dokumentumelemzés és szövegminőség-javítás opcionális, kontrollált AI-támogatással.</p>
+      <div class="hero-actions">
+        <a href="#download" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+          Letöltés
+        </a>
+        <a href="#workflow" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
+          Hogyan működik?
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span>Dokumentumvédelem</span>
+        <span>Word-kiemelés és jelentés</span>
+        <span>Kontrollált AI-támogatás</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-video-card" aria-label="Baker Lektor reklámvideó">
+        <div class="hero-video-shell">
+          <video
+            class="hero-video"
+            id="heroVideo"
+            autoplay
+            muted
+            playsinline
+            preload="metadata"
+            poster="assets/img/hero-video-final-poster.jpg"
+          >
+            <source src="assets/video/reklam_final_v7.mp4" type="video/mp4">
+            A böngésződ nem támogatja a videó lejátszását.
+          </video>
+          <div class="hero-video-endframe" id="heroVideoEndframe" aria-hidden="true"></div>
+        </div>
+        <div class="hero-video-footer">
+          <div>
+            <div class="hero-video-kicker">Baker Lektor</div>
+            <div class="hero-video-title">Rövid bemutató</div>
+          </div>
+          <button class="video-replay" id="heroVideoReplay" type="button">Videó újrajátszása</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WHY ============================ -->
+<section class="band" id="why">
+  <div class="container why-grid">
+    <div class="reveal">
+      <div class="eyebrow">A probléma</div>
+      <h2 class="section-title">Miért készült a Baker?</h2>
+      <p class="section-intro">A legtöbb AI-eszköz túl agresszíven nyúl a dokumentumhoz: átírja a mondatokat, jelentést torzít, és felborítja a gondosan felépített szerkezetet. A Baker Lektor pont az ellenkező filozófiát követi — javasol, de nem dönt helyetted.</p>
+      <div class="pull-quote" style="margin-top:36px;">
+        „A cél nem az <span class="accent">átírás</span>. A cél a <span class="accent">jobb fogalmazás</span>."
+        <small>— Baker Lektor tervezési alapelv</small>
+      </div>
+    </div>
+    <ul class="problem-list reveal">
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></span>
+        <div><strong>Túlzott átírás</strong><p>Az eszközök gyakran teljes bekezdéseket fogalmaznak újra, elveszítve az eredeti szándékot.</p></div>
+      </li>
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></span>
+        <div><strong>Jelentéstorzulás</strong><p>A „gördülékenyebb" megfogalmazás könnyen megváltoztatja a szakmai állítás pontos tartalmát.</p></div>
+      </li>
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></span>
+        <div><strong>Szerkezetvesztés</strong><p>Címsorok, hivatkozások és formázás sérül, amikor a szöveg gépi átfogalmazáson megy át.</p></div>
+      </li>
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></span>
+        <div><strong>Adatvédelmi kockázat</strong><p>A felhőalapú szolgáltatások feltöltik a dokumentumot — bizalmas anyagoknál ez nem opció.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ DOES ============================ -->
+<section id="does">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">A funkciók</div>
+      <h2 class="section-title">Mit csinál a Baker?</h2>
+      <p class="section-intro">Egy óvatos, jól átlátható elemzési folyamat, amely a döntést mindig rád bízza.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h3>Szövegminőség-ellenőrzés</h3>
+        <p>Átláthatóan jelzi a stilisztikai gyengeségeket, ismétléseket és nehezen olvasható szerkezeteket — mondatszinten.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6 7 18.2l1.9-5.8L4 8.8h6.1L12 3z"/></svg></div>
+        <h3>AI-jellegű minták jelzése</h3>
+        <p>Megmutatja, hol mutat a szöveg gépiesen generált jelleget — döntés és módosítás nélkül, csak figyelmeztetésként.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M8 13h5M8 17h8"/></svg></div>
+        <h3>Word kiemelések</h3>
+        <p>A javaslatokat közvetlenül a Word-dokumentumban jelöli, így a szövegkörnyezetben látod, mire vonatkoznak.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 4 4 5-6"/></svg></div>
+        <h3>Részletes jelentések</h3>
+        <p>Számszerű mutatókkal és színes jelölésekkel mutatja meg a dokumentum minőségét — menthető, később is visszakereshető formában.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>Lépésenként jóváhagyott javítás</h3>
+        <p>Minden javaslatot egyenként fogadsz el vagy vetsz el. A Baker sosem módosít automatikusan a hátad mögött.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-6.2-8.5M21 4v6h-6"/></svg></div>
+        <h3>Újraelemzés</h3>
+        <p>Az optimalizálás után újra lefuttatja az elemzést, hogy lásd a valódi, mérhető javulást — összehasonlítva.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DOESN'T ============================ -->
+<section class="band" id="doesnt">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">A határok</div>
+      <h2 class="section-title">Mit nem csinál?</h2>
+      <p class="section-intro">A Baker Lektor nem ír helyetted dokumentumot, és nem veszi át a szerző szerepét.<br><br>A célja nem az automatikus átírás, hanem a problémák feltárása és a kontrollált javítás támogatása.</p>
+    </div>
+    <div class="compare reveal">
+      <div class="compare-col does">
+        <div class="col-head">
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <h3>Amit vállal</h3>
+        </div>
+        <ul class="compare-list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Jelzi a minőségi és stilisztikai problémákat</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Megőrzi a dokumentum eredeti szerkezetét</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Lépésenként jóváhagyható javaslatokat ad</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>A saját gépeden, internet nélkül dolgozik</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Az emberi végső kontrollt erősíti</li>
+        </ul>
+      </div>
+      <div class="compare-col doesnt">
+        <div class="col-head">
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+          <h3>Amit nem tesz</h3>
+        </div>
+        <ul class="compare-list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Nem ír dokumentumokat helyetted</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Nem talál ki forrásokat vagy hivatkozásokat</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Nem készít automatikusan teljes dokumentumokat</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Nem módosít kontroll nélkül szakmai tartalmat</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Nem helyettesíti a szerző szakmai döntéseit</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Nem kötelező AI-használatra épül</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OFFLINE ============================ -->
+<section id="offline">
+  <div class="container offline-grid">
+    <div class="shield-visual reveal">
+      <div class="shield-ring"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">Internet nélkül, biztonságban</div>
+      <h2 class="section-title">A dokumentumod a gépeden marad</h2>
+      <p class="section-intro" style="margin-bottom:32px;">A Baker Lektor alapértelmezetten helyben, internetkapcsolat nélkül működik.<br><br>A dokumentum a saját gépeden marad, és AI-támogatás használata nem kötelező.</p>
+      <div class="privacy-points">
+        <div class="privacy-point">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
+          <div><h3>Helyben fut</h3><p>Az elemzés a saját számítógépeden történik.</p></div>
+        </div>
+        <div class="privacy-point">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.4 18.4A9 9 0 005.6 5.6m12.8 12.8A9 9 0 015.6 5.6m12.8 12.8L5.6 5.6"/></svg></span>
+          <div><h3>Offline használható</h3><p>A Baker internetkapcsolat nélkül is teljes értékűen működik.</p></div>
+        </div>
+        <div class="privacy-point">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg></span>
+          <div><h3>Opcionális AI-támogatás</h3><p>AI-eszközök kontrolláltan és a felhasználó döntése alapján kapcsolhatók be.</p></div>
+        </div>
+        <div class="privacy-point">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM19 8v6M22 11h-6"/></svg></span>
+          <div><h3>Emberi döntés</h3><p>A végső döntés mindig a tiéd.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WORKFLOW ============================ -->
+<section class="band" id="workflow">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">A folyamat</div>
+      <h2 class="section-title">Hogyan működik?</h2>
+      <p class="section-intro">Öt világos lépés a dokumentum kiválasztásától az emberi végső ellenőrzésig.</p>
+    </div>
+    <div class="workflow reveal">
+      <div class="wf-step">
+        <div class="wf-num">01</div>
+        <h3>Dokumentum</h3>
+        <p>Kiválasztod a Word-fájlt a gépedről — feltöltés nélkül.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">02</div>
+        <h3>Elemzés</h3>
+        <p>A Baker átvizsgálja a szöveget, és feltérképezi a minőségi pontokat.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">03</div>
+        <h3>AI-optimalizálás</h3>
+        <p>Átlátható javaslatok készülnek, a felépítés érintése nélkül.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">04</div>
+        <h3>Újraelemzés</h3>
+        <p>A módosítások után újra lefut az elemzés — méred a javulást.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">05</div>
+        <h3>Emberi ellenőrzés</h3>
+        <p>Te döntesz minden javaslatról, és lezárod a végső dokumentumot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VIDEOS ============================ -->
+<section id="videos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Bemutatók</div>
+      <h2 class="section-title">Rövid bemutatók</h2>
+      <p class="section-intro">Az alábbi rövid bemutatók a Baker Lektor teljes használati folyamatát követik végig az első indítástól az újraellenőrzésig.</p>
+      <a class="btn btn-ghost btn-sm video-playlist-link" href="YOUTUBE_PLAYLIST_URL" target="_blank" rel="noopener noreferrer">Teljes lejátszási lista megnyitása</a>
+    </div>
+    <div class="video-grid">
+      <a class="video-card reveal" href="https://youtu.be/394qbZY-5DU" target="_blank" rel="noopener noreferrer" aria-label="Baker Lektor bemutató megtekintése YouTube-on">
+        <div class="video-thumb">
+          <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="ph-label">Megtekintés YouTube-on</span>
+        </div>
+        <div class="v-body">
+          <div class="v-step">01 – BAKER LEKTOR BEMUTATÓ</div>
+          <h3>Baker Lektor bemutató</h3>
+          <p>A Baker Lektor fő funkcióinak gyors áttekintése.</p>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://youtu.be/MlsMLVcFjJ0" target="_blank" rel="noopener noreferrer" aria-label="Első elemzés eredményei megtekintése YouTube-on">
+        <div class="video-thumb">
+          <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="ph-label">Megtekintés YouTube-on</span>
+        </div>
+        <div class="v-body">
+          <div class="v-step">02 – ELSŐ ELEMZÉS EREDMÉNYEI</div>
+          <h3>Első elemzés eredményei</h3>
+          <p>Riportok, mutatók és kiemelések bemutatása.</p>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://youtu.be/gxOMpSjw8qY" target="_blank" rel="noopener noreferrer" aria-label="Automata optimalizálás megtekintése YouTube-on">
+        <div class="video-thumb">
+          <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="ph-label">Megtekintés YouTube-on</span>
+        </div>
+        <div class="v-body">
+          <div class="v-step">03 – AUTOMATA OPTIMALIZÁLÁS</div>
+          <h3>Automata optimalizálás</h3>
+          <p>Beépített optimalizálás és újraelemzés.</p>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://youtu.be/V341jzvKjSs" target="_blank" rel="noopener noreferrer" aria-label="AI javítási munkafolyamat megtekintése YouTube-on">
+        <div class="video-thumb">
+          <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="ph-label">Megtekintés YouTube-on</span>
+        </div>
+        <div class="v-body">
+          <div class="v-step">04 – AI JAVÍTÁSI MUNKAFOLYAMAT</div>
+          <h3>AI javítási munkafolyamat</h3>
+          <p>AI útmutató, validálás és javítások alkalmazása.</p>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://youtu.be/7YDyjw4ZuS0" target="_blank" rel="noopener noreferrer" aria-label="Kézi javítás és újraelemzés megtekintése YouTube-on">
+        <div class="video-thumb">
+          <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="ph-label">Megtekintés YouTube-on</span>
+        </div>
+        <div class="v-body">
+          <div class="v-step">05 – KÉZI JAVÍTÁS ÉS ÚJRAELEMZÉS</div>
+          <h3>Kézi javítás és újraelemzés</h3>
+          <p>A dokumentum véglegesítése és ellenőrzése.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRICING ============================ -->
+<section class="band" id="pricing">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Támogatás</div>
+      <h2 class="section-title">Támogatói csomagok</h2>
+      <p class="section-intro">A Baker Lektor fejlesztését PayPal-támogatással segítheted. A licenckulcs az ellenőrzést követően e-mailben kerül kiküldésre.</p>
+    </div>
+    <div class="pricing">
+      <div class="price-card reveal">
+        <div class="tier">Próba támogató</div>
+        <div class="period">1 hónap</div>
+        <div class="amount"><span class="cur">9 EUR-tól</span></div>
+        <div class="amount-note">1 hónapos hozzáférés</div>
+        <ul class="price-feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>PayPal-támogatás alapján</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Licenckulcs e-mailben</li>
+        </ul>
+        <a href="#support" class="btn btn-ghost btn-block btn-sm">Támogatom</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <span class="tier-flag">Ajánlott</span>
+        <div class="tier">Normál támogató</div>
+        <div class="period">3 hónap</div>
+        <div class="amount"><span class="cur">25 EUR-tól</span></div>
+        <div class="amount-note">3 hónapos hozzáférés</div>
+        <ul class="price-feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>PayPal-támogatás alapján</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Ellenőrzés után aktiválható</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Licenckulcs e-mailben</li>
+        </ul>
+        <a href="#support" class="btn btn-primary btn-block btn-sm">Támogatom</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="tier">Projekt támogató</div>
+        <div class="period">12 hónap</div>
+        <div class="amount"><span class="cur">90 EUR-tól</span></div>
+        <div class="amount-note">12 hónapos hozzáférés</div>
+        <ul class="price-feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>PayPal-támogatás alapján</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Ellenőrzés után aktiválható</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Licenckulcs e-mailben</li>
+        </ul>
+        <a href="#support" class="btn btn-ghost btn-block btn-sm">Támogatom</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SUPPORT / PAYPAL ============================ -->
+<section id="support">
+  <div class="container">
+    <div class="support-band reveal">
+      <div>
+        <div class="eyebrow">Támogatás</div>
+        <h2>Támogasd a Baker Lektort</h2>
+        <p>Ha hasznosnak találod a programot, PayPal-támogatással hozzájárulhatsz a Baker Lektor további fejlesztéséhez.</p>
+      </div>
+      <div class="paypal-box">
+        <div class="pp-label">Közösségi támogatás</div>
+        <a class="btn btn-primary btn-block" id="paypalBtn" href="https://paypal.me/BakerLektor" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21l1.5-9h4.5a4 4 0 000-8H7L4 21z"/><path d="M9 17h4.5a4 4 0 000-8"/></svg>
+          Támogatom a projektet
+        </a>
+        <div class="paypal-qr">
+          <img src="assets/img/paypal-qr.png" alt="Baker Lektor PayPal támogatási QR-kód">
+          <div>PayPal támogatás QR-kóddal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DOWNLOAD ============================ -->
+<section class="band" id="download">
+  <div class="container">
+    <div class="contact-card reveal" style="margin-bottom:0;">
+      <div class="eyebrow" style="justify-content:center;position:relative;">Letöltés</div>
+      <h2>Töltsd le a Baker Lektort</h2>
+      <p>Internet nélkül működő, asztali program Windowsra. A dokumentumaid a gépeden maradnak, az elemzés helyben fut.</p>
+      <div class="download-consent" aria-labelledby="download-consent-title">
+        <h3 id="download-consent-title">Letöltés előtt</h3>
+        <p>A Baker Lektor trial verziója 14 napig vagy 10 dokumentumig használható. A letöltéshez kérjük, erősítsd meg a két alapfeltétel elfogadását.</p>
+        <label class="download-consent-row">
+          <input type="checkbox" id="acceptTerms">
+          <span>Elfogadom a <a href="felhasznalasi-feltetelek.html" target="_blank" rel="noopener">Felhasználási feltételeket</a>.</span>
+        </label>
+        <label class="download-consent-row">
+          <input type="checkbox" id="acceptPrivacy">
+          <span>Megismertem az <a href="adatvedelem.html" target="_blank" rel="noopener">Adatvédelmi tájékoztatót</a>.</span>
+        </label>
+      </div>
+      <div class="hero-actions" style="justify-content:center;position:relative;">
+        <!-- TODO: ide kerül az éles telepítő vagy portable ZIP letöltési linkje -->
+        <a href="#" class="btn btn-primary is-disabled" id="downloadButton" aria-disabled="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+          Baker Lektor letöltése
+        </a>
+        <a href="#videos" class="btn btn-ghost">Videó megtekintése</a>
+        <a href="assets/docs/BakerLektor_Felhasznaloi_Kezikonyv.pdf" class="btn btn-ghost" target="_blank" rel="noopener" download>
+          Felhasználói kézikönyv letöltése
+        </a>
+      </div>
+      <p class="download-legal-note">A program használata előtt kérjük, olvasd el a <a href="felelossegkizaras.html" target="_blank" rel="noopener">felelősségkizárást</a> is.</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--text-3);margin-top:22px;position:relative;">Windows · Internet nélkül · A dokumentum helyben marad</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2 class="section-title">GYIK</h2>
+      <p class="section-intro">A leggyakoribb kérdések a működésről, az adatvédelemről és a határokról.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Biztonságos a Baker Lektor?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Igen. A Baker Lektor internet nélkül, a saját gépeden fut. A dokumentum nem hagyja el a számítógépedet, így a bizalmas tartalom végig nálad marad.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Feltölti valahova a dokumentumot?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Alapértelmezésben a Baker Lektor helyben dolgozik, a dokumentum a saját gépeden marad. AI-támogatás csak opcionálisan, kontrolláltan és a felhasználó döntése alapján kapcsolható be.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Helyettem írja meg a dokumentumot?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Nem.<br><br>A Baker nem helyettesíti a szerzőt.<br><br>A célja a problémák feltárása és a jobb fogalmazás támogatása, miközben a végső döntés a felhasználónál marad.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Mire való a Baker Lektor?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Szövegminőség-ellenőrzésre és stilisztikai átnézésre. Jelzi a gyenge pontokat és a gépiesnek tűnő részeket, majd átlátható javítási javaslatokat ad — a dokumentum eredeti felépítésének megőrzésével.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Mire nem való?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">A Baker nem helyettesíti a szerzőt.<br><br>Nem ír helyetted teljes dokumentumokat.<br><br>Nem talál ki forrásokat vagy hivatkozásokat.<br><br>Nem módosít kontroll nélkül szakmai tartalmat.<br><br>A célja nem az automatikus átírás, hanem a problémák feltárása és a jobb fogalmazás támogatása.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Megőrzi a dokumentum szerkezetét?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Igen, ez az egyik alapelv. A címsorok, a hivatkozások és a formázás érintetlen marad — a Baker csak jelez és javasol, nem strukturálja át a dokumentumot.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Megkerüli az AI-detektorokat?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Nem ez a célja.<br><br>A Baker a szöveg minőségének javítására, a túlhasznált panelek és problémás megfogalmazások feltárására készült.<br><br>A javítások eredményeként a szöveg természetesebbé és változatosabbá válhat, ami egyes esetekben kedvezően befolyásolja az AI-detektorok eredményeit is.<br><br>A Baker azonban nem garantálja egyetlen külső detektor eredményét sem.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kell hozzá internetkapcsolat?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Az alapvető elemzéshez nem.<br><br>A Baker Lektor helyben futó alkalmazás, amely internetkapcsolat nélkül is használható.<br><br>Az opcionális AI-támogatási funkciók és külső AI-eszközök használatához azonban internetkapcsolat szükséges lehet.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Milyen fájlformátumokkal működik?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Elsősorban Word-dokumentumokkal, ahol a javaslatokat közvetlenül a szövegben, kiemeléssel jelöli. A jelentések menthető formában érhetők el.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kinek ajánlott?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">A Baker Lektor mindazoknak készült, akik igényes, szakmai vagy üzleti dokumentumokat készítenek.<br><br>Különösen hasznos lehet:<br><br>• szakdolgozatok és beadandók készítésénél<br>• projekttervek és tanulmányok írásánál<br>• audit-, ellenőrzési és megfelelőségi munkáknál<br>• jelentések és elemzések készítésénél<br>• belső szabályzatok és eljárásrendek szerkesztésénél<br>• pályázati és üzleti dokumentumok összeállításánál<br>• AI-val támogatott szövegírás utóellenőrzésére<br><br>valamint minden olyan esetben, amikor fontos a dokumentum minősége, szerkezete és hitelessége.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Hogyan támogathatom a fejlesztést?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">A Baker Lektor fejlesztését PayPal-támogatással segítheted.<br><br>A támogatás után küldd el a PayPal tranzakció azonosítóját és azt az e-mail címet, amelyre a licenckulcsot kéred.<br><br>A licenckulcsot ellenőrzés után e-mailben küldjük meg.<br><br>A támogatói csomagok időtartama:<br>Próba támogató: 1 hónap<br>Normál támogató: 3 hónap<br>Projekt támogató: 12 hónap</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-card reveal">
+      <div class="eyebrow" style="justify-content:center;position:relative;">Kapcsolat</div>
+      <h2>Kérdésed van? Írj nekünk.</h2>
+      <p>Visszajelzés, kérdés vagy támogatási igény esetén keress minket bizalommal.</p>
+      <a class="contact-mail" href="mailto:bakerlektor@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        bakerlektor@gmail.com
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="wordmark"><span class="b">Baker</span><span class="l">Lektor</span></div>
+        <p>Dokumentumelemző és szövegminőség-javító szoftver. Offline működés, opcionális kontrollált AI-támogatás.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Termék</h4>
+          <a href="#does">Mit csinál?</a>
+          <a href="#doesnt">Mit nem csinál?</a>
+          <a href="#workflow">Hogyan működik?</a>
+          <a href="#offline">Adatvédelem</a>
+        </div>
+        <div class="footer-col">
+          <h4>Anyagok</h4>
+          <a href="#videos">Videók</a>
+          <a href="#pricing">Csomagok</a>
+          <a href="#faq">GYIK</a>
+          <a href="#download">Letöltés</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kapcsolat</h4>
+          <a href="mailto:bakerlektor@gmail.com">bakerlektor@gmail.com</a>
+          <a href="#support">Támogatás</a>
+        </div>
+        <div class="footer-col footer-legal">
+          <h4>Jogi</h4>
+          <a href="adatvedelem.html">Adatvédelem</a>
+          <a href="felhasznalasi-feltetelek.html">Felhasználási feltételek</a>
+          <a href="felelossegkizaras.html">Felelősségkizárás</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Baker Lektor · Minden jog fenntartva</span>
+      <span class="gold">A dokumentum a saját gépen marad.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

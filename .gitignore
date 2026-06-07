@@ -1,0 +1,115 @@
+# Baker Lektor website repo
+# Public GitHub Pages source only.
+
+# Never commit private application or licensing material.
+BAKER_PRIVATE_APP/
+BAKER_PRIVATE_APP/**
+LICENSE_SYSTEM/
+LICENSE_SYSTEM/**
+ACTIVE_PROJECTS/
+ACTIVE_PROJECTS/**
+GOLDEN_RELEASES/
+GOLDEN_RELEASES/**
+TEMP/
+TEMP/**
+ARCHIVUM/
+ARCHIVUM/**
+
+# Secrets, keys, licenses, local state.
+.env
+.env.*
+*secret*
+*token*
+*password*
+*credential*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+private_key*
+public_key*
+license.json
+license_state.json
+trial_state.json
+activation_state.json
+trial.json
+license*.json
+trial*.json
+machine_fingerprint*
+*.lic
+*.license
+
+# License generator and app code must stay out of the website repo.
+generate_license.py
+*generate_license*
+license_generator*
+*.py
+*.pyc
+*.pyo
+__pycache__/
+**/__pycache__/
+*.spec
+requirements.txt
+venv/
+.venv/
+
+# Executables, installers, archives, and build outputs.
+*.exe
+*.msi
+*.dll
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+dist/
+build/
+node_modules/
+.cache/
+.parcel-cache/
+
+# Large media is blocked by default.
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+
+# The homepage promo video is intentionally part of the website.
+!assets/video/
+!assets/video/reklam_final_v7.mp4
+
+# Internal website planning/setup notes are local-only for now.
+README_WEBOLDAL.md
+docs/
+docs/**
+assets/feltetelek/
+assets/feltetelek/**
+
+# The PDF manual is linked from the page. Keep this exception explicit.
+assets/docs/*
+!assets/docs/
+!assets/docs/BakerLektor_Felhasznaloi_Kezikonyv.pdf
+
+# OS and editor noise.
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+._*
+.idea/
+.vscode/
+*~
+*.swp
+*.swo
+*.log
+*.tmp
+*.bak
