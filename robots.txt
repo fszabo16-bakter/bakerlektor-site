@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# Add the Sitemap line after the custom domain is connected.
+Sitemap: https://bakerlektor.hu/sitemap.xml
