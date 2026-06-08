@@ -1083,6 +1083,23 @@ section { padding: 96px 0; position: relative; z-index: 1; }
 .download-legal-note a:hover {
   color: var(--orange);
 }
+.download-smartscreen-note {
+  margin: 18px 0 0;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 198, 91, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 198, 91, 0.08);
+  color: var(--text-2);
+  font-size: 13.5px;
+  line-height: 1.58;
+}
+.download-smartscreen-note strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
 .download-legal-note {
   margin: 18px auto 0;
   max-width: 720px;
@@ -1175,6 +1192,10 @@ section { padding: 96px 0; position: relative; z-index: 1; }
   }
   .download-consent-row {
     font-size: 14.5px;
+  }
+  .download-smartscreen-note {
+    padding: 14px;
+    font-size: 13px;
   }
   .download-modal__panel {
     padding: 28px 22px;
